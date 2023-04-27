@@ -1,0 +1,86 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Domain.Enities.Student
+<h2>Update New Employee</h2>
+<h3 class="message" style="color:forestgreen">@ViewBag.Message</h3>
+<form asp-controller="Student" asp-action="Update" method="post" id="#form-delete{{ @Model.Id }}">
+    <table border="0">
+        <tr>
+            <td class="right">
+                <label asp-for="Id"></label>
+            </td>
+            <td>
+                <input type="hidden" asp-for="Id" />
+                <span>@Model.Id</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="Name"></label>
+            </td>
+            <td>
+                <input type="text" asp-for="Name" />
+                <span asp-validation-for="Name" class="message"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="FirstName"></label>
+            </td>
+            <td>
+                <input type="text" asp-for="FirstName" />
+                <span asp-validation-for="FirstName" class="message"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="BirthDate"></label>
+            </td>
+            <td>
+                <input type="date" asp-for="BirthDate" />
+                <span asp-validation-for="BirthDate" class="message"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="MatchScore"></label>
+            </td>
+            <td>
+                <input type="number" asp-for="MatchScore" />
+                <span asp-validation-for="MatchScore" class="message"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="PhysicScore"></label>
+            </td>
+            <td>
+                <input type="number" asp-for="PhysicScore" />
+                <span asp-validation-for="PhysicScore" class="message"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="Notes"></label>
+            </td>
+            <td>
+                <textarea asp-for="Notes"></textarea>
+                <span asp-validation-for="Notes" class="message"></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit" onclick="if(confirm('Bạn có chắc chắn muốn cập nhật {{ @Model.FirstName }} không?'))
+                                                $('#form-delete{{ @Model.Id }}').submit();
+                                                else return false;">
+                    Update
+                </button>
+            </td>
+        </tr>
+    </table>
+</form>
+<br></br>
+<a asp-controller="Student" asp-action="Index">Back to list</a>

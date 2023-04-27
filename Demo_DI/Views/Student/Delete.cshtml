@@ -1,0 +1,81 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Domain.Enities.Student
+<h2> Delete an Employees</h2>
+<h3 class="message" style="color:red">
+    Warning: You are about delete an student record!
+</h3>
+<form asp-controller="Student" asp-action="Delete" id="form-delete{{ @Model.Id }}"  method="post">
+    <input type="hidden" asp-for="Id" />
+    <table border="0">
+        <tr>
+            <td class="right">
+                <label asp-for="Id"></label>
+            </td>
+            <td>
+                @Model.Id
+            </td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="Name"></label>
+            </td>
+            <td>
+                @Model.Name
+            </td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="FirstName"></label>
+            </td>
+            <td>
+                @Model.FirstName
+            </td>
+        </tr>
+         <tr>
+            <td class="right">
+                <label asp-for="BirthDate"></label>
+            </td>
+            <td>
+                @Model.BirthDate
+            </td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="MatchScore"></label>
+            </td>
+            <td>
+                @Model.MatchScore
+            </td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="PhysicScore"></label>
+            </td>
+            <td>
+                @Model.PhysicScore
+            </td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="Notes"></label>
+            </td>
+            <td>
+                @Model.Notes
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit" onclick="if(confirm('Bạn có chắc chắn muốn xóa {{ @Model.FirstName }} không?'))
+                                                $('#form-delete{{ @Model.Id }}').submit();
+                                                else return false;">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </table>
+</form>
+<a asp-controller="Student" asp-action="Index">Back to list</a>
